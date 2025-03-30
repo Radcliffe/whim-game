@@ -1,0 +1,17 @@
+{
+  "name": "whim-game",
+  "version": "1.0.0",
+  "main": "gameEngine.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "babel-jest": "^29.7.0",
+    "jest": "^27.5.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
