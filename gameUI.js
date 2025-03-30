@@ -1,6 +1,4 @@
-import { GameEngine } from './gameEngine.js';
-
-class GameUI {
+export class GameUI {
     constructor(game, doc) {
         this.game = game;
 
@@ -46,12 +44,13 @@ class GameUI {
     }
 
     handleComputerMove() {
-        if (this.game.gameOver || this.currentTurn !== 'computer') return;
-
+        if (this.game.isGameOver() || this.currentTurn !== 'computer') return;
+        this.messageBox.textContent = "Computer is thinking...";
         const { originalHeight, newHeights } = this.game.makeComputerMove();
         const moveDescription = newHeights.length === 0
             ? `removed a pile of height ${originalHeight}.`
             : `replaced a pile of height ${originalHeight} with ${newHeights.join(', ')}.`;
+
 
         this.messageBox.textContent = `Computer ${moveDescription}`;
         this.messageBox.className = "message-box computer-message";
@@ -165,13 +164,4 @@ class GameUI {
         this.messageBox.className = "message-box game-over";
         this.computerMoveBtn.disabled = true;
     }
-}
-
-// Initialize the game and UI
-const game = new GameEngine();
-const gameUI = new GameUI(game, document);
-
-// Start game unless imported as a module
-if (typeof module === 'undefined') {
-    gameUI.startNewGame();
 }
