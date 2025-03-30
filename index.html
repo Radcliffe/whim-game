@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whim Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Whim Game</h1>
+        
+        <div class="instructions">
+            <h3>Game Rules:</h3>
+            <ul>
+                <li>Players take turns replacing a pile with any number of strictly shorter piles</li>
+                <li>Click on a pile to select it, then enter the heights of new piles</li>
+                <li>Each new pile must be shorter than the original pile</li>
+                <li>Enter "0" to completely remove a pile</li>
+                <li>The player who takes the last coin wins</li>
+                <li>Maximum 20 piles allowed</li>
+            </ul>
+        </div>
+        
+        <div class="message-box player-message" id="message">Click "New Game" to start playing!</div>
+        
+        <div class="piles-container" id="piles-container"></div>
+        
+        <div class="controls">
+            <button id="new-game-btn">New Game</button>
+            <button id="computer-move-btn" disabled>Computer's Move</button>
+        </div>
+    </div>
+    
+    <footer>
+        Whim Game was invented by Joel David Hamkins
+    </footer>
+    
+    <div class="modal" id="split-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Replace Pile</h2>
+                <span class="close" id="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Selected pile height: <span id="selected-pile-height"></span></p>
+                <p>Enter the heights of new piles (space-separated numbers):</p>
+                <p><small>Enter "0" to completely remove the pile</small></p>
+                <input type="text" id="new-piles-input" class="new-piles-input" placeholder="e.g., 2 1 or 0">
+                <p id="validation-message" style="color: red;"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="replace-btn">Replace Pile</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
