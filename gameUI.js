@@ -14,13 +14,6 @@ export class GameUI {
         this.replaceBtn = doc.getElementById('replace-btn');
         this.validationMessage = doc.getElementById('validation-message');
 
-        // Ensure all required DOM elements are present
-        if (!this.pilesContainer || !this.messageBox || !this.newGameBtn || !this.computerMoveBtn ||
-            !this.modal || !this.closeModal || !this.selectedPileHeight || !this.newPilesInput ||
-            !this.replaceBtn || !this.validationMessage) {
-            throw new Error(`Missing required DOM elements:\n${doc.body.outerHTML}`);
-        }
-
         this.selectedPileIndex = -1;
         this.currentTurn = 'player'; // Tracks whose turn it is: 'player' or 'computer'
 
@@ -45,7 +38,6 @@ export class GameUI {
 
     handleComputerMove() {
         if (this.game.isGameOver() || this.currentTurn !== 'computer') return;
-        this.messageBox.textContent = "Computer is thinking...";
         const { originalHeight, newHeights } = this.game.makeComputerMove();
         const moveDescription = newHeights.length === 0
             ? `removed a pile of height ${originalHeight}.`
@@ -98,8 +90,8 @@ export class GameUI {
             this.validationMessage.textContent = "Invalid pile heights. Ensure all are positive and less than the original height.";
             return;
         }
-        if (this.game.piles.length - 1 + newHeights.length > 20) {
-            this.validationMessage.textContent = "The total number of piles cannot exceed 20.";
+        if (this.game.piles.length - 1 + newHeights.length > 12) {
+            this.validationMessage.textContent = "The total number of piles cannot exceed 12.";
             return;
         }
 

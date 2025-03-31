@@ -9,8 +9,8 @@ describe('GameEngine', () => {
 
     test('startNewGame initializes piles with random heights', () => {
         game.startNewGame();
-        expect(game.piles.length).toBeGreaterThanOrEqual(3);
-        expect(game.piles.length).toBeLessThanOrEqual(7);
+        expect(game.piles.length).toBeGreaterThanOrEqual(2);
+        expect(game.piles.length).toBeLessThanOrEqual(6);
         game.piles.forEach(height => {
             expect(height).toBeGreaterThanOrEqual(1);
             expect(height).toBeLessThanOrEqual(9);

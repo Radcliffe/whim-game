@@ -2,11 +2,13 @@ export class GameEngine {
     constructor() {
         this.piles = [];
         this.gameOver = false;
+        this.MAX_HEIGHT = 8;
+        this.MAX_PILES = 12;
     }
 
     startNewGame() {
-        const numPiles = Math.floor(Math.random() * 5) + 3;
-        this.piles = Array.from({ length: numPiles }, () => Math.floor(Math.random() * 9) + 1);
+        const numPiles = Math.floor(Math.random() * 5) + 2;
+        this.piles = Array.from({ length: numPiles }, () => Math.floor(Math.random() * this.MAX_HEIGHT) + 1);
         this.gameOver = false;
     }
 
@@ -74,6 +76,11 @@ export class GameEngine {
         } else {
             targetIndex = Math.floor(Math.random() * this.piles.length);
             newHeights = [];
+        }
+
+        if (this.piles.length + newHeights.length - 1 > this.MAX_PILES) {
+            // truncate newHeights to fit within the limit
+            newHeights = newHeights.slice(0, this.MAX_PILES - this.piles.length + 1);
         }
 
         const originalHeight = this.piles[targetIndex];

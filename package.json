@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "gameEngine.js",
   "scripts": {
+    "start": "npx http-server",
     "test": "jest"
   },
   "devDependencies": {

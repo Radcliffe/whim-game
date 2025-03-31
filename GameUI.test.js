@@ -113,5 +113,30 @@ describe('GameUI', () => {
     gameUI.handleReplacePile();
     expect(gameEngine.piles).toEqual([2, 1, 2, 1]);
   });
- 
+
+  test('should handle pile removal', () => {
+    gameEngine.piles = [3, 2, 1];
+    gameUI.selectedPileIndex = 0;
+    document.getElementById('new-piles-input').value = "0";
+
+    gameUI.handleReplacePile();
+    expect(gameEngine.piles).toEqual([2, 1]);
+  }
+  );
+
+  test('should handle invalid pile index in replacePile', () => {
+    expect(() => gameEngine.replacePile(-1, [1, 2])).toThrow("Invalid pile index.");
+    expect(() => gameEngine.replacePile(10, [1, 2])).toThrow("Invalid pile index.");
+  });
+
+  test('should enforce limit of 12 piles', () => {
+    gameEngine.piles = Array(12).fill(2);
+    gameUI.selectedPileIndex = 0;
+    document.getElementById('new-piles-input').value = "1 1";
+
+    gameUI.handleReplacePile();
+    expect(document.getElementById('validation-message').textContent).toBe("The total number of piles cannot exceed 12.");
+  }
+  );
+
 });
