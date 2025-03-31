@@ -32,12 +32,12 @@ export class GameUI {
         this.renderPiles();
         this.messageBox.textContent = "Your turn! Click on a pile to replace it.";
         this.messageBox.className = "message-box player-message";
-        this.computerMoveBtn.disabled = true;
-        this.currentTurn = 'player'; // Player starts the game
+        this.computerMoveBtn.disabled = false;
+        this.currentTurn = 'either'; // Either player can start the game
     }
 
     handleComputerMove() {
-        if (this.game.isGameOver() || this.currentTurn !== 'computer') return;
+        if (this.game.isGameOver() || this.currentTurn == 'human') return;
         const { originalHeight, newHeights } = this.game.makeComputerMove();
         const moveDescription = newHeights.length === 0
             ? `removed a pile of height ${originalHeight}.`
@@ -57,7 +57,7 @@ export class GameUI {
     }
 
     handleReplacePile() {
-        if (this.selectedPileIndex === -1 || this.currentTurn !== 'player') return;
+        if (this.selectedPileIndex === -1 || this.currentTurn === 'computer') return;
 
         const inputValue = this.newPilesInput.value.trim();
         if (!inputValue) {

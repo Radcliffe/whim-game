@@ -48,13 +48,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="whim-game" class="level1">
 <h1>Whim Game</h1>
 <p>Whim is a combinatorial game for two players devised by Joel David Hamkins. The game begins with a finite number of piles of coins. On each turn, you can remove a pile at your whim and (optionally) replace it with any number of strictly shorter piles. Whoever takes the last coin wins.</p>
+<p>Although the original version of the game admits an arbitrary number of piles, this implementation limits the number of piles to 12.</p>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>To play this game, simply run a web server in the source directory. The instructions will vary depending on your software environment. You can use Python’s built-in HTTP server as follows:</p>
+<p>To play this game, simply run a web server in the source directory. The instructions will vary depending on your software environment. If you have <code>npm</code> installed, then run the following commands:</p>
+<pre><code>$ npm install
+$ npm run</code></pre>
+<p>You can also use Python’s built-in HTTP server as follows:</p>
 <pre><code>$ python -m http.server</code></pre>
 <p>To run tests, you will need to install <code>npm</code> and then run the following commands:</p>
 <pre><code>$ npm install
 $ npm test</code></pre>
+<p>If you modify any of the JavaScript source files in the <code>src</code> directory, then you should run webpack to rebuild the bundled JavaScript file <code>dist/main.js</code> as follows:</p>
+<pre><code>$ ./node_modules/.bin/webpack</code></pre>
 </section>
 <section id="author" class="level2">
 <h2 class="anchored" data-anchor-id="author">Author</h2>

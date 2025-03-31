@@ -32,6 +32,13 @@ the following commands:
     $ npm install
     $ npm test
 
+If you modify any of the JavaScript source files in the `src`
+directory, then you should run webpack to rebuild the bundled
+JavaScript file `dist/main.js` as follows:
+
+    $ ./node_modules/.bin/webpack
+
+
 ## Author
 
 This program was written by David Radcliffe, with substantial

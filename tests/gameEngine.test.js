@@ -1,4 +1,4 @@
-import { GameEngine } from './gameEngine';
+import { GameEngine } from '../src/gameEngine';
 
 describe('GameEngine', () => {
     let game;

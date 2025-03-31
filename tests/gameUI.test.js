@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { GameEngine } from './gameEngine.js'; 
-import { GameUI } from './gameUI.js'; 
+import { GameEngine } from '../src/gameEngine.js'; 
+import { GameUI } from '../src/gameUI.js'; 
 
 describe('GameUI', () => {
   let gameEngine;
