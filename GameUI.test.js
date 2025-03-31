@@ -104,5 +104,14 @@ describe('GameUI', () => {
     gameUI.selectPile(0);
     expect(document.getElementById('selected-pile-height').textContent).toBe("3");
   });
+
+  test('should handle pile replacement', () => {
+    gameEngine.piles = [3, 2, 1];
+    gameUI.selectedPileIndex = 0;
+    document.getElementById('new-piles-input').value = "2 1";
+
+    gameUI.handleReplacePile();
+    expect(gameEngine.piles).toEqual([2, 1, 2, 1]);
+  });
  
 });
