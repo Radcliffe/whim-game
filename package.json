@@ -4,7 +4,8 @@
   "main": "gameEngine.js",
   "scripts": {
     "start": "npx http-server",
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",

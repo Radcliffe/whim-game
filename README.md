@@ -27,16 +27,15 @@ as follows:
     $ python -m http.server
 
 To run tests, you will need to install `npm` and then run
-the following commands:
+the following command:
 
-    $ npm install
     $ npm test
 
 If you modify any of the JavaScript source files in the `src`
-directory, then you should run webpack to rebuild the bundled
-JavaScript file `dist/main.js` as follows:
+directory, then you should run the following command to rebuild
+the bundled JavaScript file.
 
-    $ ./node_modules/.bin/webpack
+    $ npm run build
 
 
 ## Author
